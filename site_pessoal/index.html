@@ -1,0 +1,144 @@
+<!DOCTYPE html> 
+<html lang="pt-br">
+
+
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Pessoal - André Rosin</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet"> 
+    <script>
+        function mostrarConteudo(id) {
+            var conteudos = document.querySelectorAll('.conteudo');
+            conteudos.forEach(function (conteudo) {
+                conteudo.style.display = 'none';
+            });
+            var conteudo = document.getElementById(id);
+            conteudo.style.display = 'block';
+
+            var menuItems = document.querySelectorAll('.menu li a');
+            menuItems.forEach(function (item) {
+                item.classList.remove('selected');
+                if (item.getAttribute('onclick') === "mostrarConteudo('" + id + "')") {
+                    item.classList.add('selected');
+                }
+            });
+
+            var menuHeight = document.querySelector('.menu').offsetHeight;
+            var elementPosition = conteudo.getBoundingClientRect().top;
+            window.scrollBy({ top: elementPosition - menuHeight, behavior: 'smooth' });
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1 class="apresentacao">Olá, me chamo<span class="nome">André Carlos Procópio Rosin</span>e este é o meu site
+        pessoal.</h1>
+    <ul class="menu">
+        <li><a href="javascript:void(0)" onclick="mostrarConteudo('sobre-mim')">Sobre Mim</a></li>
+        <li><a href="javascript:void(0)" onclick="mostrarConteudo('competencias')">Competências</a></li>
+        <li><a href="javascript:void(0)" onclick="mostrarConteudo('projetos')">Projetos</a></li>
+        <li><a href="javascript:void(0)" onclick="mostrarConteudo('objetivo')">Objetivo</a></li>
+        <li><a href="javascript:void(0)" onclick="mostrarConteudo('educacao')">Educação</a></li>
+        <li><a href="javascript:void(0)" onclick="mostrarConteudo('contato')">Contato</a></li>
+    </ul>
+
+    <div id="sobre-mim" class="conteudo" style="display: none;">
+        <div style="display: flex; justify-content: space-between;">
+            <div id="texto-sobre-mim">
+                <h2>Sobre Mim</h2>
+                <p>Olá! Sou o André Carlos Procópio Rosin, de São Jorge, Rio Grande do Sul. Trabalho com meu pai na
+                    produção de uvas e estou no quinto semestre de Ciência da Computação. Comecei a me aventurar na
+                    tecnologia mexendo com Python, principalmente para analisar dados. Além de Python, tenho me
+                    interessado também em desenvolvimento web com JavaScript, explorando suas capacidades dinâmicas e
+                    interativas. À medida que me aprofundava nisso, percebi o quanto a tecnologia pode mudar as coisas
+                    em diferentes áreas. </p>
+            </div>
+            <div id="imagem-sobre-mim">
+                <img src="img\eu.JPG" alt="Minha foto" style="max-width: 60%; border-radius: 10%;">
+            </div>
+        </div>
+    </div>
+
+    <div id="competencias" class="conteudo" style="display: none;">
+        <h2>Competências</h2>
+        <h3>Habilidades Técnicas</h3>
+        <ul>
+            <li>Python e Ferramentas para Análise de Dados</li>
+            <li>Power BI</li>
+            <li>SQL</li>
+            <li>JavaScript</li>
+            <li>Inteligência Artificial</li>
+            <li>Inglês: Intermediário</span></li>
+        </ul>
+
+        <h3>Habilidades Pessoais</h3>
+        <ul>
+            <li>Liderança</li>
+            <li>Trabalho em Equipe</li>
+            <li>Paciência</li>
+            <li>Dedicação</li>
+            <li>Organização</li>
+        </ul>
+
+        <h3>Outras Qualidades</h3>
+        <ul>
+            <li>Adaptabilidade</li>
+            <li>Criatividade</li>
+            <li>Atenção aos Detalhes</li>
+        </ul>
+    </div>
+
+    <div id="projetos" class="conteudo" style="display: none;">
+        <h2>Projetos</h2>
+        <a href="https://github.com/andrerosin/previsao-precos" target="_blank">previsao-precos</a>
+        <a href="https://github.com/andrerosin/automacao-web" target="_blank">automacao-web</a>
+        <a href="https://github.com/andrerosin/analise-dados" target="_blank">analise-dados</a>
+        <a href="https://github.com/andrerosin/stickers-alura" target="_blank">stickers-alura</a>
+        <a href="https://github.com/andrerosin/dino-game" target="_blank">dino-game</a>
+        <a href="https://github.com/andrerosin/automacao-emails" target="_blank">automacao-emails</a>
+    </div>
+
+    <div id="objetivo" class="conteudo" style="display: none;">
+        <h2>Objetivo</h2>
+        <p>Com grande entusiasmo, estou em busca da minha primeira oportunidade no universo da tecnologia. Seja como
+            estagiário, analista de dados ou desenvolvedor júnior, estou pronto para enfrentar desafios e contribuir de
+            maneira significativa para projetos inovadores. <br> Minha paixão por resolver problemas, combinada com meu
+            compromisso constante de aprender e evoluir, me torna um candidato entusiasmado, pronto para mergulhar de
+            cabeça no mundo profissional da tecnologia.</p>
+    </div>
+
+    <div id="educacao" class="conteudo" style="display: none;">
+        <h2>Educação</h2>
+        <h3>Ensino Médio</h3>
+        <p style="font-weight: bold;">Escola Pedro Nunes da Silva, São Jorge, RS</p>
+        <p>2019 - 2021</p>
+        <h3>Faculdade</h3>
+        <p style="font-weight: bold;">Atitus Educação, Passo Fundo, RS</p>
+        <p>2022 - até o momento</p>
+    </div>
+
+    <div id="contato" class="conteudo" style="display: none;">
+        <h2>Contato</h2>
+        <p>Fique à vontade para entrar em contato comigo através dos links abaixo!</p>
+        <a href="https://github.com/andrerosin">
+            <img src="img\icons\github.png" alt="Logo do GitHub">
+        </a>
+        <a href="https://www.instagram.com/andre.rosin?igsh=dHl0dGlwYXV6NGhw&utm_source=qr">
+            <img src="img\icons\instagram.png" alt="Logo do Instagram">
+        </a>
+        <a href="https://www.linkedin.com/in/andre-rosin">
+            <img src="img\icons\linkedin.png" alt="Logo do Linkedin">
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=5554999861724">
+            <img src="img\icons\whatsapp.png" alt="Logo do WhatsApp"> 
+        </a>
+    </div>
+
+</body>
+
+</html>
